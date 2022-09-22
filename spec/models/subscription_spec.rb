@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Customer do
+RSpec.describe Subscription do
   describe 'relationships' do
     it { should belong_to :customer }
     it { should have_many :teas}
@@ -11,5 +11,5 @@ RSpec.describe Customer do
     it { should validate_presence_of :status }
     it { should validate_presence_of :frequency}
     it { should validate_presence_of :title }
-    
   end
+end

@@ -1,12 +1,11 @@
 class CreateSubscriptions < ActiveRecord::Migration[5.2]
   def change
     create_table :subscriptions do |t|
+      t.string :title
       t.float :price
       t.boolean :status
       t.string :frequency
-      t.string :title
-      t.string :string
-      t.references :user, foreign_key: true
+      t.references :customer, foreign_key: true
     end
   end
 end

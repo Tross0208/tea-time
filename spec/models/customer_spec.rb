@@ -13,3 +13,4 @@ RSpec.describe Customer do
     it { should validate_presence_of :address }
     it { should validate_uniqueness_of :email }
   end
+end
