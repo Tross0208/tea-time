@@ -195,7 +195,7 @@
           null,
           null,
           1,
-          1,
+          2,
           null,
           null,
           null,
@@ -305,6 +305,37 @@
           null
         ]
       },
+      "/Users/pistachiojoe/turing/4mod/proj/takehome/tea/tea_time/spec/requests/subscription_request_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
       "/Users/pistachiojoe/turing/4mod/proj/takehome/tea/tea_time/spec/serializers/subscription_serializer_spec.rb": {
         "lines": [
           1,
@@ -326,12 +357,38 @@
           null
         ]
       },
+      "/Users/pistachiojoe/turing/4mod/proj/takehome/tea/tea_time/app/controllers/api/v1/subscriptions_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/pistachiojoe/turing/4mod/proj/takehome/tea/tea_time/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
       "/Users/pistachiojoe/turing/4mod/proj/takehome/tea/tea_time/app/serializers/subscription_serializer.rb": {
         "lines": [
           1,
           1,
           null,
-          1,
+          2,
           null,
           null,
           null,
@@ -348,6 +405,6 @@
         ]
       }
     },
-    "timestamp": 1663860377
+    "timestamp": 1663866242
   }
 }
