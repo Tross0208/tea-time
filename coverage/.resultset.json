@@ -208,6 +208,11 @@
         "lines": [
           1,
           null,
+          1,
+          1,
+          1,
+          null,
+          null,
           null
         ]
       },
@@ -299,8 +304,50 @@
           null,
           null
         ]
+      },
+      "/Users/pistachiojoe/turing/4mod/proj/takehome/tea/tea_time/spec/serializers/subscription_serializer_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/pistachiojoe/turing/4mod/proj/takehome/tea/tea_time/app/serializers/subscription_serializer.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
       }
     },
-    "timestamp": 1663855367
+    "timestamp": 1663860377
   }
 }
