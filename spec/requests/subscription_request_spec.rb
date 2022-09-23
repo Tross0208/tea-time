@@ -74,4 +74,30 @@ RSpec.describe "Subscription Request" do
     expect(response.status).to eq(200)
     expect(response_body[:data][:attributes][:status]).to eq("inactive")
   end
+
+  it 'returns all subs' do
+    cust = Customer.create!(first_name: "Jimmy", last_name: "Dean", email: "baconwrangler@gmail.com", address: "Hidden Valley Ranch")
+    sub = Subscription.create!(title: "Creamium", price: 9.99, status: "active", frequency: "Monthly", customer_id: cust.id)
+    tea = Tea.create!(title: "Black Tea", description: "It's a tea", temperature: 165, brew_time: 6, subscription_id: sub.id)
+    sub2 = Subscription.create!(title: "Basic", price: 7.99, status: "active", frequency: "Monthly", customer_id: cust.id)
+    tea2 = Tea.create!(title: "Green Tea", description: "It's another tea", temperature: 175, brew_time: 4, subscription_id: sub2.id)
+
+
+    header = { 'CONTENT_TYPE' => 'application/json', "Accept" => 'application/json' }
+    body = {
+            "id": sub.id,
+            "title": "Tea",
+            "price": 9.99,
+            "status": "inactive",
+            "frequency": "Monthly",
+            "customer_id": cust.id,
+            }
+
+    get '/api/v1/subscriptions', headers: header, params: body
+
+    response_body = JSON.parse(response.body, symbolize_names: true)
+
+    expect(response.status).to eq(200)
+    expect(response_body[:data].count).to eq(2)
+  end
 end

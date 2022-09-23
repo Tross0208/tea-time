@@ -1,6 +1,12 @@
 module Api
   module V1
     class SubscriptionsController < ApplicationController
+
+      def index
+        subs = Subscription.where(customer_id: params[:customer_id])
+        render json: SubscriptionSerializer.serialize_subscriptions(subs)
+      end
+
       def create
         sub = Subscription.create(sub_params)
         tea = Tea.create!(title: params[:tea][:title],
@@ -12,9 +18,7 @@ module Api
       end
 
       def update
-
         sub = Subscription.find(params[:id])
-
         if sub.update!(sub_params)
           tea = Tea.where(subscription_id: sub.id)
           render json: SubscriptionSerializer.serialize_subscription(sub, tea.first), status: 200
