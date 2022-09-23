@@ -1,4 +1,4 @@
-![Header]Tea Time
+# Tea Time
 
 
 ### Abstract
