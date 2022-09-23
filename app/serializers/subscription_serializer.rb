@@ -1,5 +1,6 @@
 class SubscriptionSerializer
   def self.serialize_subscription(sub, tea)
+    
         {
           "data": {
             "type": "subscription",

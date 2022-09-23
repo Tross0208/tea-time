@@ -8,7 +8,7 @@ RSpec.describe "Subscription Request" do
     body = {
             "title": "Tea",
             "price": 9.99,
-            "status": true,
+            "status": "active",
             "frequency": "Monthly",
             "customer_id": cust.id
             }
@@ -32,7 +32,7 @@ RSpec.describe "Subscription Request" do
     body = {
             "title": "Tea",
             "price": 9.99,
-            "status": true,
+            "status": "active",
             "frequency": "Monthly",
             "customer_id": cust.id,
             "tea": {
@@ -49,6 +49,29 @@ RSpec.describe "Subscription Request" do
     expect(Tea.all.count).to eq(teas + 1)
     expect(response.status).to eq(201)
     expect(response_body[:data][:attributes][:tea][:title]).to eq("Black Tea")
+  end
 
+  it 'cancels subscription' do
+    cust = Customer.create!(first_name: "Jimmy", last_name: "Dean", email: "baconwrangler@gmail.com", address: "Hidden Valley Ranch")
+    sub = Subscription.create!(title: "Creamium", price: 9.99, status: "active", frequency: "Monthly", customer_id: cust.id)
+    tea = Tea.create!(title: "Black Tea", description: "It's a tea", temperature: 165, brew_time: 6, subscription_id: sub.id)
+
+
+    header = { 'CONTENT_TYPE' => 'application/json', "Accept" => 'application/json' }
+    body = {
+            "id": sub.id,
+            "title": "Tea",
+            "price": 9.99,
+            "status": "inactive",
+            "frequency": "Monthly",
+            "customer_id": cust.id,
+            }
+
+    patch "/api/v1/subscriptions/#{sub.id}", headers: header, params: JSON.generate(body)
+
+    response_body = JSON.parse(response.body, symbolize_names: true)
+
+    expect(response.status).to eq(200)
+    expect(response_body[:data][:attributes][:status]).to eq("inactive")
   end
 end

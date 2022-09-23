@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2022_09_22_140233) do
   create_table "subscriptions", force: :cascade do |t|
     t.string "title"
     t.float "price"
-    t.boolean "status"
+    t.string "status"
     t.string "frequency"
     t.bigint "customer_id"
     t.index ["customer_id"], name: "index_subscriptions_on_customer_id"
